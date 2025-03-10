@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full-Screen Google Map</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+    <script>
+        function initMap() {
+            const location = { lat: 35.6128203, lng: 139.693359 };
+
+            const map = new google.maps.Map(document.getElementById("map"), {
+                center: location,
+                zoom: 18,
+                styles: [
+                  {
+                    "elementType": "labels",
+                    "stylers": [
+                      {
+                        "visibility": "off"
+                      }
+                    ]
+                  },
+                  {
+                    "featureType": "administrative.land_parcel",
+                    "stylers": [
+                      {
+                        "visibility": "off"
+                      }
+                    ]
+                  },
+                  {
+                    "featureType": "administrative.neighborhood",
+                    "stylers": [
+                      {
+                        "visibility": "off"
+                      }
+                    ]
+                  },
+                  {
+                    "featureType": "landscape.man_made",
+                    "elementType": "geometry.fill",
+                    "stylers": [
+                      {
+                        "visibility": "on"
+                      }
+                    ]
+                  },
+                  {
+                    "featureType": "landscape.man_made",
+                    "elementType": "geometry.stroke",
+                    "stylers": [
+                      {
+                        "lightness": 100
+                      }
+                    ]
+                  },
+                  {
+                    "featureType": "road",
+                    "stylers": [
+                      {
+                        "weight": 8
+                      }
+                    ]
+                  },
+                  {
+                    "featureType": "road",
+                    "elementType": "geometry.stroke",
+                    "stylers": [
+                      {
+                        "lightness": 100
+                      }
+                    ]
+                  }
+                ]
+            });
+        }
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=[YOUR_API_KEY]&callback=initMap">
+    </script>
+</head>
+<body>
+    <div id="map"></div>
+</body>
+</html>
